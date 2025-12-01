@@ -38,7 +38,7 @@ public class Program
             Console.WriteLine("Source file not found: " + sourceFilePath);
 
         }
-        // Retrun the path to the copied file
+        // Return the path to the copied file
         return destinationFilePath;
     }
 
@@ -114,12 +114,13 @@ public class Program
     public static void MainMenu()
     {
         while (true)
-        {           
+        {
             Console.WriteLine("Main Menu:");
             Console.WriteLine("1. Install new device");
             Console.WriteLine("2. Control a device");
             Console.WriteLine("3. View all devices");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("4.Save device list");
+            Console.WriteLine("5. Exit");
 
             Console.Write("Choose an option: ");
             string choice = Console.ReadLine();
@@ -133,10 +134,14 @@ public class Program
                     //ControlDevicesMenu();
                     break;
                 case "3":
-                    //ViewAllDevices();
+                    ViewAllDevices();
                     break;
                 case "4":
+                    //ViewAllDevices();
                     return;
+                    case "5":
+                     //exit
+                     break;
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;
@@ -144,6 +149,18 @@ public class Program
         }
     }
 
+    public static void ViewAllDevices()
+    {
+
+        Console.WriteLine("All Devices:");
+        foreach (var device in devices)
+        {
+            device.GetStatus();
+            Console.WriteLine();
+
+        }
 
 
+
+    }
 }
